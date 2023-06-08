@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- HTML Meta Tags -->
+        <title>Generate Embed</title>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+        <!-- Scripts -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="p-8 max-w-md m-auto bg-zinc-900 text-white text-center">
+        <header class="mb-6">
+            <h1 id="heading" class="text-3xl font-bold">Generate Embed</h1>
+        </header>
+
+        <main class="mb-8">
+            <form id="form" onsubmit="copy()">
+                <input type="text" id="title" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 mb-4" placeholder="Title">
+                <input type="text" id="description" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 mb-4" placeholder="Description">
+                <input type="url" id="image" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 mb-6" placeholder="Image">
+
+                <button id="btn" type="submit" class="bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Copy URL</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 <span class="font-semibold">William Harrison</span> - All Rights Reserved.</p>
+        </footer>
+    </body>
+
+    <script>
+        const title = document.getElementById("title");
+        const description = document.getElementById("description");
+        const image = document.getElementById("image");
+        const btn = document.getElementById("btn");
+
+        async function copy() {
+            event.preventDefault();
+
+            if(!title.value && !description.value && !image.value) return alert("You must add at least one field!");
+
+            const encodedTitle = encodeURI(title.value);
+            const encodedDescription = encodeURI(description.value);
+            const encodedImage = encodeURI(image.value);
+
+            navigator.clipboard.writeText(`${location.protocol}//${location.host}/embed?${title.value ? `title=${encodedTitle}` : ""}${description.value ? `${title.value ? "&" : ""}description=${encodedDescription}` : ""}${image.value ? `${title.value || description.value ? "&" : ""}image=${encodedImage}` : ""}`);
+
+            btn.innerHTML = "Copied URL";
+            btn.setAttribute("disabled", true);
+
+            setTimeout(() => {
+                btn.innerHTML = "Copy URL";
+                btn.removeAttribute("disabled");
+            }, 3000);
+        }
+    </script>
+</html>

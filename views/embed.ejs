@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- HTML Meta Tags -->
+        <title><%= embed.title %></title>
+        <meta name="description" content="<%= embed.description %>" />
+
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="<%= embed.title %>" />
+        <meta itemprop="description" content="<%= embed.description %>" />
+        <meta itemprop="image" content="<%= embed.image %>" />
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:title" content="<%= embed.title %>" />
+        <meta property="og:description" content="<%= embed.description %>" />
+        <meta property="og:image" content="<%= embed.image %>" />
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="<%= embed.title %>" />
+        <meta name="twitter:description" content="<%= embed.description %>" />
+        <meta name="twitter:image" content="<%= embed.image %>" />
+    </head>
+</html>
