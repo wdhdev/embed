@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
+const port = 80;
 
 const Sentry = require("@sentry/node");
 const bodyParser = require("body-parser");
@@ -18,7 +19,6 @@ Sentry.init({
 })
 
 const router = require("./util/router");
-const port = process.env.port;
 
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
@@ -35,5 +35,5 @@ app.use("/", router);
 app.use(Sentry.Handlers.errorHandler());
 
 app.listen(port, () => {
-    console.log(`[API] Listening on Port: ${port}`);
+    console.log(`Listening on Port: ${port}`);
 })
