@@ -21,4 +21,23 @@
         <meta name="twitter:description" content="<%= embed.description %>" />
         <meta name="twitter:image" content="<%= embed.image %>" />
     </head>
+
+    <body>
+        <h3>Title</h3>
+        <p><%= embed.title || "<em>None</em>" %></p>
+
+        <h3>Description</h3>
+        <p><%= embed.description || "<em>None</em>" %></p>
+
+        <h3>Image</h3>
+        <p><%= embed.image || "<em>None</em>" %></p>
+    </body>
+
+    <script>
+        const title = "<%= embed.title %>";
+        const desc = "<%= embed.description %>";
+        const image = "<%= embed.image %>";
+
+        if(!title && !desc && !image) window.location = "/";
+    </script>
 </html>
