@@ -17,10 +17,10 @@
   },
   "homepage": "https://embed.wdh.gg",
   "dependencies": {
-    "@sentry/node": "^7.54.0",
+    "@sentry/node": "^7.72.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.1.4",
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2"
   }
