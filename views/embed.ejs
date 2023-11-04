@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- HTML Meta Tags -->
-        <title><%= embed.title %></title>
+        <title>Embed</title>
         <meta name="description" content="<%= embed.description %>" />
 
         <!-- Google / Search Engine Tags -->
@@ -21,39 +21,33 @@
         <meta name="twitter:description" content="<%= embed.description %>" />
         <meta name="twitter:image" content="<%= embed.image %>" />
 
-        <!-- Stylesheets -->
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <!-- Scripts -->
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <style>
-        * {
-            font-family: "Ubuntu", sans-serif;
-        }
+    <body class="p-4 max-w-md m-auto bg-zinc-900 text-white text-center break-all">
+        <% if(embed.title) { %>
+            <h1 class="text-2xl font-bold">Title</h1>
+            <p><%= embed.title %></p>
 
-        @media (prefers-color-scheme: dark) {
-            * {
-                background-color: #222222;
-                color: #ffffff;
-            }
-        }
-    </style>
+            <% if(embed.description) { %>
+                <div class="mb-4"></div>
+            <% } %>
+        <% } %>
 
-    <body>
-        <h2>Title</h2>
-        <p><%= embed.title || "No title specified." %></p>
+        <% if(embed.description) { %>
+            <h1 class="text-2xl font-bold">Description</h1>
+            <p><%= embed.description %></p>
 
-        <h2>Description</h2>
-        <p><%= embed.description || "No description specified." %></p>
+            <% if(embed.image) { %>
+                <div class="mb-4"></div>
+            <% } %>
+        <% } %>
 
-        <h2>Image</h2>
-        <p><%= embed.image || "No image specified." %></p>
+        <% if(embed.image) { %>
+            <h1 class="text-2xl font-bold">Image</h1>
+            <a href="<%= embed.image %>" class="text-blue-500 hover:text-blue-600"><%= embed.image %></a>
+            <img src="<%= embed.image %>" class="h-32 mt-2 mx-auto">
+        <% } %>
     </body>
-
-    <script>
-        const title = "<%= embed.title %>";
-        const desc = "<%= embed.description %>";
-        const image = "<%= embed.image %>";
-
-        if(!title && !desc && !image) window.location = "/";
-    </script>
 </html>

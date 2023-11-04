@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
 require("dotenv").config();
 const port = 80;
 
-const Sentry = require("@sentry/node");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import * as Sentry from "@sentry/node";
+import bodyParser from "body-parser";
+import cors from "cors";
 
 Sentry.init({
     dsn: process.env.sentry_dsn,
@@ -18,7 +18,7 @@ Sentry.init({
     tracesSampleRate: 1.0
 })
 
-const router = require("./util/router");
+import router from "./util/router";
 
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());

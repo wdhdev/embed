@@ -1,7 +1,7 @@
-const { Router } = require("express");
+import { Router } from "express";
 
 const router = Router();
-const routes = require("./routes");
+import routes from "./routes";
 
 router.get("/", async (req, res) => {
     routes.index(req, res);
@@ -11,4 +11,4 @@ router.get("/embed", async (req, res) => {
     routes.embed(req, res);
 })
 
-module.exports = router;
+export default router;
