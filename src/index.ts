@@ -1,3 +1,4 @@
+import "./instrument";
 import express from "express";
 const app = express();
 
@@ -5,18 +6,8 @@ require("dotenv").config();
 const port = process.env.port || 80;
 
 import * as Sentry from "@sentry/node";
-import { nodeProfilingIntegration } from "@sentry/profiling-node";
 import bodyParser from "body-parser";
 import cors from "cors";
-
-Sentry.init({
-    dsn: process.env.sentry_dsn,
-    integrations: [
-        nodeProfilingIntegration()
-    ],
-    tracesSampleRate: 1.0,
-    profilesSampleRate: 1.0
-})
 
 import router from "./util/router";
 

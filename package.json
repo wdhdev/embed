@@ -18,8 +18,8 @@
   },
   "homepage": "https://embed.wdh.gg",
   "dependencies": {
-    "@sentry/node": "^8.9.2",
-    "@sentry/profiling-node": "^8.9.2",
+    "@sentry/node": "^8.18.0",
+    "@sentry/profiling-node": "^8.18.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -27,7 +27,7 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "@sentry/types": "^8.9.2",
+    "@sentry/types": "^8.18.0",
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
     "@types/ejs": "^3.1.5",
