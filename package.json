@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/wdhdev/embed/issues"
   },
-  "homepage": "https://embed.wdh.gg",
+  "homepage": "https://embed.wdh.app",
   "dependencies": {
     "@sentry/node": "^8.18.0",
     "@sentry/profiling-node": "^8.18.0",
